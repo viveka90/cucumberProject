@@ -4,7 +4,7 @@ target/
 !**src/test/**/user.properties
 
 ### IntelliJ IDEA ###
-.idea
+.idea/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
