@@ -9,6 +9,7 @@ public class LoginPage extends BaseClass {
     private static String txtPassword = "//input[@id='input-password']";
     private static String btnLogin = "//input[@value='Login']";
     private static String linkForgotPAssword = "(//a[text()='Forgotten Password'])[1]";
+    private static String linkWarning = "//div[contains(@class, 'alert alert-danger')]";
 
     public static void enterUserName(String userName){
         BrowserUtil.enterText(txtEmail,userName );
@@ -20,5 +21,9 @@ public class LoginPage extends BaseClass {
 
     public static void clickLogin(){
         BrowserUtil.clickElement(btnLogin);
+    }
+
+    public static void validateErrorMessage(String expectedError){
+        BrowserUtil.validateText(linkWarning,expectedError);
     }
 }

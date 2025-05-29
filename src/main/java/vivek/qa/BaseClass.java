@@ -7,16 +7,17 @@ import vivek.qa.Utilitis.propertiesUtil;
 
 import java.util.Properties;
 
+import static vivek.qa.Utilitis.BrowserUtil.getBrowserDriver;
+
 public class BaseClass {
 
     protected  static WebDriver driver;
-
-
+    static Properties appproperties = propertiesUtil.loadApplicaitonProperties();
+    static String url = appproperties.getProperty("application.url").toString();
+    static Properties framproperties = propertiesUtil.loadFrameworkProperties();
+    static String browser = framproperties.getProperty("browser");
     public static void initializeDriver(){
-        Properties properties = propertiesUtil.loadApplicaitonProperties();
-        String url = properties.getProperty("application.url").toString();
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        getBrowserDriver(browser);
         driver.get(url);
         driver.manage().window().maximize();
     }
