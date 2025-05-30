@@ -1,4 +1,4 @@
-package vivek.qa.stepDef;
+package stepDef;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -29,7 +29,7 @@ public class LoginStepdefs extends BaseClass {
     }
 
     @When("user click on the login button")
-    public void userClickOnTheLoginButton() {
+    public void userClickOnTheLoginButton() throws InterruptedException {
         LoginPage.clickLogin();
     }
 
@@ -54,7 +54,7 @@ public class LoginStepdefs extends BaseClass {
     }
 
     @Given("User should be logged into the application")
-    public void userShouldBeLoggedIntoTheApplication() {
+    public void userShouldBeLoggedIntoTheApplication() throws InterruptedException {
         userEntersValidUserNameInTheEmailField();
         userEntersValidPasswordInThePasswordField();
         userClickOnTheLoginButton();

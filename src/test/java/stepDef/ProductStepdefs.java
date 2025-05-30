@@ -1,4 +1,4 @@
-package vivek.qa.stepDef;
+package stepDef;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -18,7 +18,7 @@ public class ProductStepdefs extends BaseClass {
     }
 
     @And("user selects the product")
-    public void userSelectsTheProduct() {
+    public void userSelectsTheProduct() throws InterruptedException {
         ProductPage.clickOnProduct("HP LP3065");
     }
 

@@ -2,10 +2,7 @@ package vivek.qa.Utilitis;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -22,6 +19,18 @@ public class BrowserUtil extends BaseClass {
     public static void clickElement(String element){
         findcustomElement(element).click();
     }
+
+    public static void clickwithoutWait(String element){
+        driver.findElement(By.xpath(element)).click();
+    }
+
+    public static void clickElementWithJS(String locator){
+        WebElement element = driver.findElement(By.xpath(locator));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
+
+    }
+
 
     public static void hoverElement(String element){
         Actions action = new Actions(driver);
@@ -65,7 +74,8 @@ public class BrowserUtil extends BaseClass {
 
         WebElement element = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.xpath(locator));
+                WebElement el = driver.findElement(By.xpath(locator));
+                    return el;
             }
         });
 

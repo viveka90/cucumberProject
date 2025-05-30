@@ -19,7 +19,8 @@ public class ProductPage extends BaseClass {
     }
 
     public static void clickOnProduct(String expectedText){
-        BrowserUtil.clickElement("//a[contains(text(),'"+expectedText+"')]");
+        //BrowserUtil.clickElement("//a[contains(text(),'"+expectedText+"')]");
+        BrowserUtil.clickElementWithJS("//a[contains(text(),'HP LP3065')]");
     }
 
 
